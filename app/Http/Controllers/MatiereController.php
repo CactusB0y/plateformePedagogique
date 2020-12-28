@@ -14,7 +14,8 @@ class MatiereController extends Controller
      */
     public function index()
     {
-        //
+        $matieres = Matiere::all();
+        return view('backoffice.matiereIndex',compact('matieres'));
     }
 
     /**
@@ -35,7 +36,10 @@ class MatiereController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Matiere;
+        $store->nom=$request->nom;
+        $store->save();
+        return redirect()->back();
     }
 
     /**
@@ -55,9 +59,10 @@ class MatiereController extends Controller
      * @param  \App\Models\Matiere  $matiere
      * @return \Illuminate\Http\Response
      */
-    public function edit(Matiere $matiere)
+    public function edit($id)
     {
-        //
+        $edit = Matiere::find($id);
+        return view('backoffice.partials.matiereEdit',compact('edit'));
     }
 
     /**
@@ -67,9 +72,12 @@ class MatiereController extends Controller
      * @param  \App\Models\Matiere  $matiere
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Matiere $matiere)
+    public function update(Request $request, $id)
     {
-        //
+        $update = Matiere::find($id);
+        $update->nom = $request->nom;
+        $update->save();
+        return redirect('/matiere');
     }
 
     /**
@@ -78,8 +86,10 @@ class MatiereController extends Controller
      * @param  \App\Models\Matiere  $matiere
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Matiere $matiere)
+    public function destroy($id)
     {
-        //
+        $delete = Matiere::find($id);
+        $delete->delete();
+        return redirect()->back();
     }
 }

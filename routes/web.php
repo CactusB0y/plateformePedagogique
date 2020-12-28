@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MatiereController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,5 @@ Auth::routes();
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+
+Route::resource('matiere', MatiereController::class);
