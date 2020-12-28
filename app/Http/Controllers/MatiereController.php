@@ -36,10 +36,14 @@ class MatiereController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nom' => 'required',
+        ]);
+
         $store = new Matiere;
         $store->nom=$request->nom;
         $store->save();
-        return redirect()->back();
+        return redirect()->back()->with('storeMatiere', 'Matière ajouter!');
     }
 
     /**
@@ -74,10 +78,14 @@ class MatiereController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'nom' => 'required',
+        ]);
+
         $update = Matiere::find($id);
         $update->nom = $request->nom;
         $update->save();
-        return redirect('/matiere');
+        return redirect('/matiere')->with('updateMatiere', 'Matière modifier!');
     }
 
     /**
@@ -90,6 +98,6 @@ class MatiereController extends Controller
     {
         $delete = Matiere::find($id);
         $delete->delete();
-        return redirect()->back();
+        return redirect()->back()->with('deleteMatiere', 'Matière supprimer!');
     }
 }

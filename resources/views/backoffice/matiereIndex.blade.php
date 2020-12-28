@@ -7,6 +7,30 @@
 @stop
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@if (session('storeMatiere'))
+<div class="alert alert-success">
+    {{ session('storeMatiere') }}
+</div>
+@endif
+@if (session('updateMatiere'))
+<div class="alert alert-primary">
+    {{ session('updateMatiere') }}
+</div>
+@endif
+@if (session('deleteMatiere'))
+<div class="alert alert-danger">
+    {{ session('deleteMatiere') }}
+</div>
+@endif
     <div class="row">
         <div class="col-12">
             <div class="card">
