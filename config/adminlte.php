@@ -235,11 +235,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'accueil',
+            'url'         => '/',
+            'icon'        => 'fas fa-home',
         ],
         ['header' => 'account_settings'],
         [
@@ -263,21 +261,16 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'    => 'fichier',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'voir',
+                    'icon'    => 'fas fa-fw fa-eye',
+                    'url'  => '/fichier',
+                ],
+            ],
         ],
     ],
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FichierController;
 use App\Http\Controllers\MatiereController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,4 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 Route::resource('matiere', MatiereController::class);
+Route::resource('fichier', FichierController::class);

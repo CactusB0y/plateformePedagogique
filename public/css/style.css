@@ -1,0 +1,9 @@
+.borderProfil {
+    border-bottom: solid 1px #adb5bd;
+    border-left: solid 1px #adb5bd;
+    border-right: solid 1px #adb5bd;
+}
+
+.imgProfil {
+    margin-left: 25%;
+}
