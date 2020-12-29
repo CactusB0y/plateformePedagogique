@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FichierController;
 use App\Http\Controllers\MatiereController;
+use App\Http\Controllers\ProfilController;
 use App\Models\Fichier;
 use App\Models\Matiere;
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +29,6 @@ Route::get('/cours', function () {
     return view('cours',compact('matieres','fichiers'));
 });
 
-Route::get('/profil', function () {
-    return view('profil');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -44,3 +41,5 @@ Route::get('/home', function() {
 
 Route::resource('matiere', MatiereController::class);
 Route::resource('fichier', FichierController::class);
+Route::post('/editPicture/{id}', [ProfilController::class, 'editPicture']);
+Route::resource('profil', ProfilController::class);
