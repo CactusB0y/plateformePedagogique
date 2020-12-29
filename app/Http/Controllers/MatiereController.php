@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fichier;
 use App\Models\Matiere;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,7 @@ class MatiereController extends Controller
 
         $store = new Matiere;
         $store->nom=$request->nom;
+        $store->description=$request->description;
         $store->save();
         return redirect()->back()->with('storeMatiere', 'Matière ajouter!');
     }
@@ -52,9 +54,11 @@ class MatiereController extends Controller
      * @param  \App\Models\Matiere  $matiere
      * @return \Illuminate\Http\Response
      */
-    public function show(Matiere $matiere)
+    public function show($id)
     {
-        //
+        $show = Matiere::find($id);
+        $fichiers = Fichier::all();
+        return view('coursShow',compact('show','fichiers'));
     }
 
     /**
@@ -84,6 +88,7 @@ class MatiereController extends Controller
 
         $update = Matiere::find($id);
         $update->nom = $request->nom;
+        $update->description=$request->description;
         $update->save();
         return redirect('/matiere')->with('updateMatiere', 'Matière modifier!');
     }

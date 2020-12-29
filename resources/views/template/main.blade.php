@@ -12,23 +12,23 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="{{asset("img/molen.PNG")}}" alt=""></a>
+              <a class="navbar-brand" href="/"><img src="{{asset("img/molen.PNG")}}" alt=""></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav mx-auto">
                   <li class="nav-item">
-                    <a class="nav-link active text-light mr-5" aria-current="page" href="#">Accueil</a>
+                    <a class="nav-link active text-light mr-5" aria-current="page" href="/">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light mr-5" href="#">Cours</a>
+                    <a class="nav-link text-light mr-5" href="/cours">Cours</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light mr-5" href="#">Mes Cours</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light mr-5" href="#">Profil</a>
+                    <a class="nav-link text-light mr-5" href="/profil">Profil</a>
                   </li>
                 </ul>
               </div>

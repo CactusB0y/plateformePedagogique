@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\FichierController;
 use App\Http\Controllers\MatiereController;
+use App\Models\Fichier;
+use App\Models\Matiere;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/cours', function () {
+    $matieres = Matiere::all();
+    $fichiers = Fichier::all();
+    return view('cours',compact('matieres','fichiers'));
+});
+
+Route::get('/profil', function () {
+    return view('profil');
 });
 
 Auth::routes();

@@ -1,4 +1,4 @@
 @extends('template.main')
 @section('content')
-    @include('partials.content')
+    @include('partials.profil')
 @endsection

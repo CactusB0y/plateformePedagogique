@@ -30,6 +30,10 @@
               <label for="exampleInputEmail1">Nom</label>
               <input type="text" name="nom" value="{{$edit->nom}}" class="form-control" id="exampleInputEmail1" placeholder="Nom de la matière">
             </div>
+            <div class="form-group">
+              <label>Textarea</label>
+              <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{$edit->description}}</textarea>
+            </div>
           </div>
           <!-- /.card-body -->
 

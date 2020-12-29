@@ -39,6 +39,7 @@
                         <thead class="table-primary">
                           <tr>
                             <th scope="col">nom</th>
+                            <th scope="col">description</th>
                             <th scope="col"></th>
                           </tr>
                         </thead>
@@ -46,6 +47,7 @@
                             @foreach ($matieres as $matiere)
                                 <tr>
                                     <td scope="row">{{$matiere->nom}}</td>
+                                    <td scope="row">{{$matiere->description}}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
                                             <a href="matiere/{{$matiere->id}}/edit" class="btn btn-info mr-1"><i class="fas fa-eye"></i></a>
@@ -78,6 +80,10 @@
               <label for="exampleInputEmail1">Nom</label>
               <input type="text" name="nom" class="form-control" id="exampleInputEmail1" placeholder="Nom de la matière">
             </div>
+            <div class="form-group">
+                <label>description</label>
+                <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
+              </div>
           </div>
           <!-- /.card-body -->
 
