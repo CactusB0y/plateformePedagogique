@@ -4,7 +4,14 @@
 
 @foreach ($matieres as $matiere)
     <div class="card bg-transparent mt-5" style="width: 60rem;">
-        <div class="alert mb-0" style="font-size: 20px;color: #FA824C; background-color: #E5E5E5; font-weight: bold">{{$matiere->nom}}</div>
+        <div class="alert mb-0 d-flex justify-content-between" style="font-size: 20px;color: #FA824C; background-color: #E5E5E5; font-weight: bold">
+            <span>{{$matiere->nom}}</span>
+            <form action="/detachMatiere/{{Auth::user()->id}}" method="POST">
+                @csrf
+                <input type="text" name="matiere_id" value="{{$matiere->id}}" class="d-none">
+                <button type="submit" class="btn btn-danger ml-2">se désabonner</button>
+            </form>
+        </div>
         <div class="card-body" style="background-color: #font-weight: bold">
             <div class="row">
                 <table class="table">

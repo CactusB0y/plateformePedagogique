@@ -1,3 +1,8 @@
+@if (session('desabonner'))
+<div class="alert alert-danger">
+    {{ session('desabonner') }}
+</div>
+@endif
 <div class="container">
     <div class="row">
         <div class="col-4">

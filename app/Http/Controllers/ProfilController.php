@@ -113,7 +113,7 @@ class ProfilController extends Controller
 
         $user = User::find($id);
         $user->matieres()->attach($request->matiere_id);
-        return redirect()->back();
+        return redirect()->back()->with('abonnement','vous suivez actuellement ce cours');
     }
 
     public function detachMatiere(Request $request, $id)
@@ -125,7 +125,7 @@ class ProfilController extends Controller
 
         $user = User::find($id);
         $user->matieres()->detach($request->matiere_id);
-        return redirect()->back();
+        return redirect()->back()->with('desabonner','vous ne suivez plus ce cours');
     }
 
     /**
