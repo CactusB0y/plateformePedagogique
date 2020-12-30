@@ -26,8 +26,6 @@ Route::get('/', function () {
 });
 
 Route::get('/cours', function () {
-    $test = MatiereUser::all();
-    // dd($test->user);
     $matieres = Matiere::all();
     $fichiers = Fichier::all();
     $user = User::find(Auth::user());

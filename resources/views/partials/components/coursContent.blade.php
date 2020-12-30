@@ -11,10 +11,12 @@
                     <p><i>"{{$matiere->description}}"</i></p>
                 </div>
                 <div class="col-4">
-                    {{-- {{dd($matiere->matiere_user->first()->user_id == Auth::id())}} --}}
-                    
-                        @if (isset($matiere->matiere_user->first()->user_id) && $matiere->matiere_user->first()->user_id == Auth::id())
-                            <p>ca marche</p>
+                        @if (Auth::user()->matieres->contains("id",$matiere->id))
+                            <form action="/detachMatiere/{{Auth::user()->id}}" method="POST">
+                                @csrf
+                                <input type="text" name="matiere_id" value="{{$matiere->id}}" class="d-none">
+                                <button type="submit" class="btn btn-danger ml-2">se désabonner</button>
+                            </form>
                             @else
                             <form action="/addMatiere/{{Auth::user()->id}}" method="POST">
                                 @csrf
@@ -22,7 +24,6 @@
                                 <button type="submit" class="btn btn-success ml-2">suivre ce cours</button>
                             </form>
                         @endif
-                    
                     <a href="/matiere/{{$matiere->id}}" class="btn btn-primary ml-2">voir le cours</a>
                 </div>
             </div>
