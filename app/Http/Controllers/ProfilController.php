@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Matiere;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,8 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('profil');
+        $users = User::all();
+        return view('profil',compact('users'));
     }
 
     /**
@@ -99,6 +101,30 @@ class ProfilController extends Controller
             $request->file('src')->storePublicly('img','public');
         }
         $updatePicture->save();
+        return redirect()->back();
+    }
+
+    public function addMatiere(Request $request, $id)
+    {
+        // $addMatiere = User::find($id);
+        // $addMatiere->matiere_id = $request->matiere_id;
+        // $addMatiere->save();
+        // return redirect()->back();
+
+        $user = User::find($id);
+        $user->matieres()->attach($request->matiere_id);
+        return redirect()->back();
+    }
+
+    public function detachMatiere(Request $request, $id)
+    {
+        // $addMatiere = User::find($id);
+        // $addMatiere->matiere_id = $request->matiere_id;
+        // $addMatiere->save();
+        // return redirect()->back();
+
+        $user = User::find($id);
+        $user->matieres()->detach($request->matiere_id);
         return redirect()->back();
     }
 

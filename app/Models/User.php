@@ -11,6 +11,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function matieres()
+    {
+        return $this->belongsToMany(Matiere::class, 'matiere_user','user_id', 'matiere_id','id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

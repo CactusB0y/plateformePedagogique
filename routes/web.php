@@ -27,19 +27,25 @@ Route::get('/cours', function () {
     $matieres = Matiere::all();
     $fichiers = Fichier::all();
     return view('cours',compact('matieres','fichiers'));
-});
+})->middleware('AccessUser');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/mesCours', function () {
+    $matieres = Auth::user()->matieres;
+    $fichiers = Fichier::all();
+    return view('mesCours',compact('matieres','fichiers'));
+})->middleware('AccessUser');
 
 Auth::routes();
 
 Route::get('/home', function() {
     return view('home');
-})->name('home')->middleware('auth');
+})->name('home')->middleware('AccessMiddleware');
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/download/{id}',[MatiereController::class,'download']);
 Route::resource('matiere', MatiereController::class);
 Route::resource('fichier', FichierController::class);
 Route::post('/editPicture/{id}', [ProfilController::class, 'editPicture']);
-Route::resource('profil', ProfilController::class);
+Route::post('/addMatiere/{id}', [ProfilController::class, 'addMatiere']);
+Route::post('/detachMatiere/{id}', [ProfilController::class, 'detachMatiere']);
+Route::resource('profil', ProfilController::class)->middleware('AccessUser');

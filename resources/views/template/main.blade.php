@@ -25,7 +25,7 @@
                     <a class="nav-link text-light mr-5" href="/cours">Cours</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light mr-5" href="#">Mes Cours</a>
+                    <a class="nav-link text-light mr-5" href="/mesCours">Mes Cours</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light mr-5" href="/profil">Profil</a>
@@ -36,6 +36,7 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="btn btn-light">Home</a>
+                        <a href="{{ url('/logout') }}" class="btn btn-light"> se deconnecter </a>
                     @else
                         <a href="{{ route('login') }}" class="btn btn-light">se connecter</a>
 

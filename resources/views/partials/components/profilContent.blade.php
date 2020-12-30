@@ -1,6 +1,6 @@
 <div class="row mt-5">
     <div class="col-6">
-        <h2 style="color: #fa824c">vos informations</h2>
+        <h2 style="color: #fa824c">Vos informations</h2>
         <form role="form" action="/profil/{{Auth::user()->id}}" method="POST">
             @csrf
             @method('PATCH')

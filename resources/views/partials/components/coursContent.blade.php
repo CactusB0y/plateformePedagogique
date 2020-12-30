@@ -11,7 +11,11 @@
                     <p><i>"{{$matiere->description}}"</i></p>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-success ml-2">suivre ce cours</button>
+                    <form action="/addMatiere/{{Auth::user()->id}}" method="POST">
+                        @csrf
+                        <input type="text" name="matiere_id" value="{{$matiere->id}}" class="d-none">
+                        <button type="submit" class="btn btn-success ml-2">suivre ce cours</button>
+                    </form>
                     <a href="/matiere/{{$matiere->id}}" class="btn btn-primary ml-2">voir le cours</a>
                 </div>
             </div>

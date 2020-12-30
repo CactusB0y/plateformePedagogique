@@ -1,3 +1,8 @@
+@if (session('authMSG'))
+<div class="alert alert-success">
+    {{ session('authMSG') }}
+</div>
+@endif
 <div class="container">
     <div class="row">
         <div class="col-4">

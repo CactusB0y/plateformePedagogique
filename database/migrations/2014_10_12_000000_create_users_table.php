@@ -20,8 +20,6 @@ class CreateUsersTable extends Migration
             $table->integer('age');
             $table->string('src');
             $table->string('role')->default('membre');
-            $table->unsignedBigInteger('matiere_id')->nullable();
-            $table->foreign('matiere_id')->references("id")->on('matieres');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

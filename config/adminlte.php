@@ -244,6 +244,11 @@ return [
             'url'         => '/cours',
             'icon'        => 'fas fa-book-reader',
         ],
+        [
+            'text'        => 'profil',
+            'url'         => '/profil',
+            'icon'        => 'fas fa-user',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

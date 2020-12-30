@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fichier;
 use App\Models\Matiere;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MatiereController extends Controller
 {
@@ -104,5 +105,11 @@ class MatiereController extends Controller
         $delete = Matiere::find($id);
         $delete->delete();
         return redirect()->back()->with('deleteMatiere', 'Matière supprimer!');
+    }
+
+    public function download($id)
+    {
+        $download = Fichier::find($id);
+        return Storage::disk('public')->download('files/'.$download->src);
     }
 }
