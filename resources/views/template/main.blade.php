@@ -35,7 +35,9 @@
               @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="btn btn-light">Home</a>
+                      @if (Auth::user()->role == "admin")
+                        <a href="{{ url('/home') }}" class="btn btn-light">Home</a>     
+                      @endif
                         <a href="{{ url('/logout') }}" class="btn btn-light"> se deconnecter </a>
                     @else
                         <a href="{{ route('login') }}" class="btn btn-light">se connecter</a>

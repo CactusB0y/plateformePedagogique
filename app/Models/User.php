@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     public function matieres()
     {
-        return $this->belongsToMany(Matiere::class, 'matiere_user','user_id', 'matiere_id','id');
+        return $this->belongsToMany(Matiere::class);
     }
 
     /**
@@ -23,6 +23,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'prenom',
+        'age',
         'email',
         'password',
     ];

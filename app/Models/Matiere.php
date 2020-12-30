@@ -12,4 +12,7 @@ class Matiere extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function matiere_user(){
+        return $this->hasMany(MatiereUser::class);
+      }
 }

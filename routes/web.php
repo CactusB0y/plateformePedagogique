@@ -5,6 +5,8 @@ use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfilController;
 use App\Models\Fichier;
 use App\Models\Matiere;
+use App\Models\MatiereUser;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +26,12 @@ Route::get('/', function () {
 });
 
 Route::get('/cours', function () {
+    $test = MatiereUser::all();
+    // dd($test->user);
     $matieres = Matiere::all();
     $fichiers = Fichier::all();
-    return view('cours',compact('matieres','fichiers'));
+    $user = User::find(Auth::user());
+    return view('cours',compact('matieres','fichiers','user'));
 })->middleware('AccessUser');
 
 Route::get('/mesCours', function () {
