@@ -52,7 +52,6 @@
                                     <td scope="row">{{$fichier->matieres->nom}}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="fichier/{{$fichier->id}}/edit" class="btn btn-info mr-1"><i class="fas fa-eye"></i></a>
                                             <form action="/fichier/{{$fichier->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
