@@ -13,7 +13,7 @@
                 <div class="col-4">
                     {{-- {{dd($matiere->matiere_user->first()->user_id == Auth::id())}} --}}
                     
-                        @if ($item->matiere_id == $matiere->id)
+                        @if (isset($matiere->matiere_user->first()->user_id) && $matiere->matiere_user->first()->user_id == Auth::id())
                             <p>ca marche</p>
                             @else
                             <form action="/addMatiere/{{Auth::user()->id}}" method="POST">
@@ -22,7 +22,6 @@
                                 <button type="submit" class="btn btn-success ml-2">suivre ce cours</button>
                             </form>
                         @endif
-                    @endforeach
                     
                     <a href="/matiere/{{$matiere->id}}" class="btn btn-primary ml-2">voir le cours</a>
                 </div>
